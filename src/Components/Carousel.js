@@ -141,7 +141,7 @@ export const Carousel = () => {
             <img
               className="w-5/6 absolute top-14"
               src={YankeeWhite}
-              alt="photo of a small white gun case"
+              alt="small white gun case"
             />
           </div>
           <h5 className="font-semibold sm:mt-3 mt-8">
