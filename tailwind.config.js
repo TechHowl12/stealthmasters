@@ -4,10 +4,20 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        flip: {
+          from: { transform: 'rotateX(0deg)' },
+          to: { transform: 'rotateX(180deg)' }
+        }
+      },
+      animation: {
+        flip: 'flip 0.9s ease-in-out forwards'
+      }
+    },
     screens: {
       sm: '768px',
-      md: '976px',
+      md: '1025px',
       lg: '1440px',
     },
   },
