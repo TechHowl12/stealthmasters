@@ -12,8 +12,8 @@ import YankeeWhite from "../assets/YankeeLarge.png"
 
 export const Cards = () => {
 
-  const [smallCase,setSmallCase] = useState(SmallWhite);
-  const [mediumCase,setMediumCase] = useState(MediumBrown);
+  const [smallCase,setSmallCase] = useState(SmallBlack);
+  const [mediumCase,setMediumCase] = useState(MediumBlack);
   const [largeCase,setLargeCase] = useState(LargeBlack);
 
   return (

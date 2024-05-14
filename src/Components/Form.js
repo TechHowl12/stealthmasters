@@ -89,13 +89,23 @@ export const Form = () => {
       console.error("Error:", error);
     }
   };
+  const today = new Date();
+  const futureDate = new Date();
+  futureDate.setDate(today.getDate() + 90);
+
+  const formatDate = (date) => {
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}-${day}-${year}`;
+  };
 
   return (
     <div>
 
-        <h4 className={"text-[#E6DCC8] block text-center roboto text-sm sm:text-xl md:text-xl my-7 tracking-wide"}>
+        <h4 className={isSubmitted ? "invisible my-7" : "text-[#E6DCC8] block text-center roboto text-sm sm:text-xl md:text-xl my-7 tracking-wide"}>
           Fill Out This Form To
-          <span className="font-semibold"> Activate Your Warranty</span>
+          <span className="font-semibold">Activate Your Warranty</span>
         </h4>
 
       <form
@@ -113,7 +123,7 @@ export const Form = () => {
               Your warranty has been activated.
             </h1>
             <h3 className="mt-3 text-xs sm:text-xl md:text-2xl">
-              Valid from Date X to Date Y (x+90 days)
+              Valid from Date {formatDate(today)} to Date {formatDate(futureDate)}
             </h3>
           </div>
         ) : (
