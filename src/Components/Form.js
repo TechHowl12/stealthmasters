@@ -103,7 +103,7 @@ export const Form = () => {
   return (
     <div>
 
-        <h4 className={isSubmitted ? "hidden md:invisible md:my-7" : "text-[#E6DCC8] block text-center roboto text-sm sm:text-xl md:text-xl my-7 tracking-wide"}>
+        <h4 className={isSubmitted ? "invisible  md:my-7" : "text-[#E6DCC8] block text-center roboto text-sm sm:text-xl md:text-xl my-7 tracking-wide"}>
           Fill Out This Form To
           <span className="font-semibold"> Activate Your Warranty</span>
         </h4>
