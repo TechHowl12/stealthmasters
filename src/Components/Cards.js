@@ -8,7 +8,7 @@ import MediumBlack from "../assets/MediumBlack.png"
 import LargeWhite from "../assets/LargeWhite.png"
 import LargeBlack from "../assets/LargeBlack.png"
 import LargeBrown from "../assets/LargeBrown.png"
-import YankeeWhite from "../assets/YankeeLarge.png"
+import YankeeWhite from "../assets/yankee large.png"
 
 export const Cards = () => {
 
@@ -25,7 +25,7 @@ export const Cards = () => {
 
             <div className='border sm:p-4 border-white rounded-xl p-7 sm:h-[28rem] h-[25rem]'>
             <div className='h-2/3 relative flex items-center justify-center'>
-                      <img className='w-5/6 absolute top-5' src={smallCase} alt='small gun case'/>
+                      <img className='w-5/6 absolute md:top-5 sm:top-[30%]' src={smallCase} alt='small gun case'/>
                     </div>
                     <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Small MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits One Handgun)</span></h5>
                      <div className='flex gap-x-2 mt-1'>
@@ -40,8 +40,8 @@ export const Cards = () => {
                  </div>
 
                  <div className='border sm:p-4 border-white rounded-xl p-7 sm:h-[28rem] h-[25rem]'>
-                    <div className='h-2/3 relative flex items-center justify-center'>
-                      <img className='w-5/6 absolute top-5' src={mediumCase} alt='medium gun case'/>
+            <div className='h-2/3 relative flex items-center justify-center'>
+                      <img className='w-5/6 absolute md:top-5 sm:top-[30%]' src={mediumCase} alt='medium gun case'/>
                     </div>
                     <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Medium MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits Two Handguns)</span></h5>
                      <div className='flex gap-x-2 mt-1'>
@@ -56,8 +56,8 @@ export const Cards = () => {
                  </div>
 
                  <div className='border sm:p-4 border-white rounded-xl p-7 sm:h-[28rem] h-[25rem]'>
-                 <div className='h-2/3 relative flex items-center justify-center'>
-                      <img className='w-5/6 absolute top-5' src={largeCase} alt='large gun case'/>
+            <div className='h-2/3 relative flex items-center justify-center'>
+                      <img className='w-5/6 absolute md:top-5 sm:top-[30%]' src={largeCase} alt='large gun case'/>
                     </div>
                     <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Large MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits Two Handguns & One Assault Rifle)</span></h5>
                      <div className='flex gap-x-2 mt-1'>
@@ -71,9 +71,9 @@ export const Cards = () => {
                      </div>
                  </div>
 
-                 <div className='border sm:p-4 border-white rounded-xl p-7'>
-                    <div className='h-2/3 flex justify-center items-center'>
-                      <img className='w-5/6 mx-auto' src={YankeeWhite} alt='photo of a small white gun case'/>
+                 <div className='border sm:p-4 border-white rounded-xl p-7 sm:h-[28rem] h-[25rem]'>
+            <div className='h-2/3 relative flex items-center justify-center'>
+                      <img className='w-5/6 absolute md:top-2 sm:top-[30%]' src={YankeeWhite} alt='small white gun case'/>
                     </div>
                     <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Small MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits One Handgun & One Assault Rifle)</span></h5>
                      <div className='flex gap-x-2 mt-1'>

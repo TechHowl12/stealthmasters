@@ -9,7 +9,7 @@ import MediumBlack from "../assets/MediumBlack.png";
 import LargeWhite from "../assets/LargeWhite.png";
 import LargeBlack from "../assets/LargeBlack.png";
 import LargeBrown from "../assets/LargeBrown.png";
-import YankeeWhite from "../assets/YankeeLarge.png";
+import YankeeWhite from "../assets/yankee large.png";
 
 export const Carousel = () => {
   const [smallCase, setSmallCase] = useState(SmallWhite);
@@ -21,6 +21,7 @@ export const Carousel = () => {
     infinite: true,
     speed: 500,
     fade:true,
+    autoplay:true,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
