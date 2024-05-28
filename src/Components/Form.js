@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import order from "../assets/order-Id.png";
 import { Triangle } from "react-loader-spinner";
+import { MyDatePicker } from "./MyDatePicker";
 
-export const Form = () => {
+export const Form = ({ setRegister }) => {
   const [isHover, setIsHover] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [purchaseDate,setPurchaseDate] = useState(null);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     phone: "",
     order: "",
+    date: "",
+    place: "",
   });
 
   const [errors, setErrors] = useState({
@@ -18,19 +22,28 @@ export const Form = () => {
     email: "",
     phone: "",
     order: "",
+    date: "",
+    place: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: "",
-    }));
+    if (name === "date") {
+      const formattedDate = value ? value.format("MM-DD-YYYY") : "";
+      setFormState((prevState) => ({
+        ...prevState,
+        [name]: formattedDate,
+      }));
+    } else {
+      setFormState((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: "",
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -38,22 +51,28 @@ export const Form = () => {
 
     const newErrors = {};
     if (!formState.name) {
-      newErrors.name = "Name is required";
+      newErrors.name = "Name is required*";
     }
     if (!formState.email) {
-      newErrors.email = "Email is required";
+      newErrors.email = "Email is required*";
     } else if (!/\S+@\S+\.\S+/.test(formState.email)) {
-      newErrors.email = "Email is invalid";
+      newErrors.email = "Email is invalid*";
     }
     if (!formState.phone) {
-      newErrors.phone = "Phone number is required";
+      newErrors.phone = "Phone number is required*";
     } else if (!/^\+?1?\d{10}$/.test(formState.phone)) {
-      newErrors.phone = "Phone number is invalid";
+      newErrors.phone = "Phone number is invalid*";
     }
     if (!formState.order) {
-      newErrors.order = "Order ID is required";
+      newErrors.order = "Order ID is required*";
     } else if (!/^\d+$/.test(formState.order)) {
-      newErrors.order = "Order ID must contain only numbers";
+      newErrors.order = "Order ID must contain only numbers*";
+    }
+    if (!formState.date) {
+      newErrors.date = "Date of purchase is required*";
+    }
+    if (!formState.place) {
+      newErrors.place = "Place of purchase is required*";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -78,36 +97,44 @@ export const Form = () => {
         requestOptions
       );
       setIsSubmitted(true);
+      setRegister(true);
+      setPurchaseDate(formState.date);
       setIsLoading(false);
       setFormState({
         name: "",
         email: "",
         phone: "",
         order: "",
+        date: "",
+        place: "",
       });
     } catch (error) {
       console.error("Error:", error);
     }
   };
-  const today = new Date();
+  const today = new Date(purchaseDate);
   const futureDate = new Date();
   futureDate.setDate(today.getDate() + 90);
 
   const formatDate = (date) => {
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
     const year = date.getFullYear();
     return `${month}-${day}-${year}`;
   };
 
   return (
     <div>
-
-        <h4 className={isSubmitted ? "invisible  md:my-7" : "text-[#E6DCC8] block text-center roboto text-sm sm:text-xl md:text-xl my-7 tracking-wide"}>
-          Fill Out This Form To
-          <span className="font-semibold"> Activate Your Warranty</span>
-        </h4>
-
+      <h4
+        className={
+          isSubmitted
+            ? "invisible  md:my-7"
+            : "text-[#E6DCC8] block text-center roboto text-sm sm:text-xl md:text-xl my-7 tracking-wide"
+        }
+      >
+        Fill Out This Form To
+        <span className="font-semibold"> Activate Your Warranty</span>
+      </h4>
       <form
         onSubmit={handleSubmit}
         autoComplete="off"
@@ -123,7 +150,8 @@ export const Form = () => {
               Your warranty has been activated.
             </h1>
             <h3 className="mt-3 text-xs sm:text-xl md:text-2xl">
-              Valid from Date {formatDate(today)} to Date {formatDate(futureDate)}
+              Valid from Date <span className="font-semibold text-sm sm:text-2xl md:text-3xl">{formatDate(today)}</span> to Date{" "}
+              <span className="font-semibold text-sm sm:text-2xl md:text-3xl">{formatDate(futureDate)}</span>
             </h3>
           </div>
         ) : (
@@ -139,6 +167,11 @@ export const Form = () => {
                 >
                   Name:
                 </label>
+                {errors.name && (
+                  <span className="text-red-500 text-sm ml-2">
+                    {errors.name}
+                  </span>
+                )}
                 <input
                   onChange={handleInputChange}
                   value={formState.name}
@@ -146,11 +179,6 @@ export const Form = () => {
                   name="name"
                   className="w-full border border-[#E6DCC8] bg-[#141414] rounded-lg p-2 mt-2"
                 />
-                {errors.name && (
-                  <span className="text-red-500 text-sm ml-2">
-                    {errors.name}
-                  </span>
-                )}
               </div>
               <div>
                 <label
@@ -159,6 +187,11 @@ export const Form = () => {
                 >
                   E-Mail:
                 </label>
+                {errors.email && (
+                  <span className="text-red-500 text-sm ml-2">
+                    {errors.email}
+                  </span>
+                )}
                 <input
                   onChange={handleInputChange}
                   value={formState.email}
@@ -166,11 +199,6 @@ export const Form = () => {
                   name="email"
                   className="w-full border border-[#E6DCC8] bg-[#141414] rounded-lg p-2 mt-2"
                 />
-                {errors.email && (
-                  <span className="text-red-500 text-sm ml-2">
-                    {errors.email}
-                  </span>
-                )}
               </div>
               <div>
                 <label
@@ -179,6 +207,11 @@ export const Form = () => {
                 >
                   Mobile Number:
                 </label>
+                {errors.phone && (
+                  <span className="text-red-500 text-sm ml-2">
+                    {errors.phone}
+                  </span>
+                )}
                 <input
                   onChange={handleInputChange}
                   value={formState.phone}
@@ -186,11 +219,6 @@ export const Form = () => {
                   name="phone"
                   className="w-full border border-[#E6DCC8] bg-[#141414] rounded-lg p-2 mt-2"
                 />
-                {errors.phone && (
-                  <span className="text-red-500 text-sm ml-2">
-                    {errors.phone}
-                  </span>
-                )}
               </div>
               <div>
                 <label
@@ -213,6 +241,11 @@ export const Form = () => {
                       </span>
                     )}
                   </span>
+                  {errors.order && (
+                    <span className="text-red-500 text-sm ml-2">
+                      {errors.order}
+                    </span>
+                  )}
                 </label>
                 <input
                   onChange={handleInputChange}
@@ -221,10 +254,59 @@ export const Form = () => {
                   name="order"
                   className="w-full border border-[#E6DCC8] bg-[#141414] rounded-lg p-2 mt-2"
                 />
-                {errors.order && (
-                  <span className="text-red-500 text-sm">{errors.order}</span>
-                )}
               </div>
+              <div>
+                <div className="flex items-center">
+                  <label
+                    className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
+                    htmlFor="place"
+                  >
+                    Place of Purchase:
+                  </label>
+                  {errors.place && (
+                    <span className="text-red-500 text-sm ml-2">
+                      {errors.place}
+                    </span>
+                  )}
+                </div>
+                <select
+                  onChange={handleInputChange}
+                  value={formState.place}
+                  name="place"
+                  className="w-full border border-[#E6DCC8] bg-[#141414] rounded-lg p-2 mt-2"
+                >
+                  <option value="">Select a place</option>
+                  <option value="Amazon">Amazon</option>
+                  <option value="D2C Website">D2C Website</option>
+                </select>
+              </div>
+              <div>
+                <div className="flex items-center">
+                  <label
+                    className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
+                    htmlFor="date"
+                  >
+                    Date of Purchase:
+                  </label>
+                  {errors.date && (
+                    <span className="text-red-500 text-sm ml-2">
+                      {errors.date}
+                    </span>
+                  )}
+                </div>
+                <div className="mt-[0.4rem]">
+                  <MyDatePicker
+                    name="date"
+                    value={formState.date}
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className="text-[#E6DCC8] font-normal text-xs md:text-lg text-center mt-5">
+                *T&C - Warranty is valid for 90 days from date of purchase
+              </p>
             </div>
             <div className="w-full flex items-center justify-center">
               <button
