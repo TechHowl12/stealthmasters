@@ -9,7 +9,7 @@ export const Banner = () => {
 
   return (
     <>
-      <div className={`bg-[#141414] p-0 md:p-6 h-auto ${register ? "md:h-[112vh] xl:h-[114vh]" : "md:h-[133vh] xl:h-[135vh]"} overflow-visible`}>
+      <div className={`bg-[#141414] p-0 md:p-6 h-auto ${register ? "md:h-[48rem] lg:h-[51rem] xl:h-[61rem]" : "md:h-[56rem] lg:h-[58rem] xl:h-[60rem]"} overflow-visible`}>
         <div className='p-4 md:p-0'>
         <Header/>
         </div>
@@ -19,7 +19,7 @@ export const Banner = () => {
        </div>
        <div className='w-5/6 mx-auto mt-4 relative'>
         <Form setRegister={setRegister}/>
-        <img className='md:absolute md:top-[95%]' src={GunMaster}/>
+        <img className='md:absolute md:top-[95%] mx-auto' src={GunMaster}/>
        </div>
  
       </div>

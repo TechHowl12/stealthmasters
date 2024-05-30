@@ -19,7 +19,7 @@ export const Cards = () => {
   return (
     <div className='bg-white p-8 md:p-14'>
         <div className='bg-[#E6DCC8] rounded-3xl p-7'>
-            <h3 className='text-[#823205] font-semibold tracking-wide mt-7 md:mt-[11%] xl:mt-[12%] text-2xl text-center'>Explore Our Range of Colors and Sizes</h3>
+            <h3 className='text-[#823205] font-semibold tracking-wide mt-7 md:mt-[9%] lg:mt-[10%] xl:mt-[11%] text-2xl text-center'>Explore Our Range of Colors and Sizes</h3>
 
             <div className='grid grid-cols-2 gap-7 mt-10'>
 
