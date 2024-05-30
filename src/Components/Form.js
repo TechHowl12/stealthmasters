@@ -165,7 +165,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide"
                   htmlFor="name"
                 >
-                  Name:
+                  Name*:
                 </label>
                 {errors.name && (
                   <span className="text-red-500 text-sm ml-2">
@@ -185,7 +185,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide"
                   htmlFor="email"
                 >
-                  E-Mail:
+                  E-Mail*:
                 </label>
                 {errors.email && (
                   <span className="text-red-500 text-sm ml-2">
@@ -205,7 +205,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide"
                   htmlFor="phone"
                 >
-                  Mobile Number:
+                  Mobile Number*:
                 </label>
                 {errors.phone && (
                   <span className="text-red-500 text-sm ml-2">
@@ -225,7 +225,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
                   htmlFor="order"
                 >
-                  Order ID:
+                  Order ID*:
                   <span className="relative">
                     <img
                       onMouseEnter={() => setIsHover(true)}
@@ -261,7 +261,7 @@ export const Form = ({ setRegister }) => {
                     className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
                     htmlFor="place"
                   >
-                    Place of Purchase:
+                    Place of Purchase*:
                   </label>
                   {errors.place && (
                     <span className="text-red-500 text-sm ml-2">
@@ -286,7 +286,7 @@ export const Form = ({ setRegister }) => {
                     className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
                     htmlFor="date"
                   >
-                    Date of Purchase:
+                    Date of Purchase*:
                   </label>
                   {errors.date && (
                     <span className="text-red-500 text-sm ml-2">
