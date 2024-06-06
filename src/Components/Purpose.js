@@ -15,7 +15,7 @@ export const Purpose = () => {
         <h1 className="text-[#823205] mt-5 md:mt-0 font-medium text-4xl md:text-6xl">
           Our Purpose
         </h1>
-        <p className="roboto sm:text-md text-lg mt-7">
+        <p className="roboto text-xs sm:text-sm md:text-lg mt-7">
           <strong>Stealth-Masters</strong> is the stylish choice for <strong>discreet, secure, and easily
           accessible storage</strong>.<br/><br/> Our <strong>customizable concealment furniture</strong> securely
           stores firearms or other personal items such as jewelry, recreational
