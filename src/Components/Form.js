@@ -246,7 +246,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
                   htmlFor="order"
                 >
-                  Order ID* :
+                  Order Number* :
                   <span className="relative">
                     <img
                       onMouseEnter={() => setIsHover(true)}
@@ -257,8 +257,9 @@ export const Form = ({ setRegister }) => {
                       className="cursor-pointer"
                     />
                     {isHover && (
-                      <span className="absolute sm:whitespace-nowrap md:whitespace-nowrap top-1/2 left-full transform -translate-y-1/2 ml-2 transition bg-[#E6DCC8] text-[#141414] text-xs py-1 px-2 rounded-md opacity-100 pointer-events-none duration-300">
-                        Check your Amazon Email for Order ID
+                      <span className="absolute whitespace-nowrap sm:whitespace-nowrap md:whitespace-nowrap top-1/2 left-full transform -translate-y-1/2 ml-2 transition bg-[#E6DCC8] text-[#141414] text-xs py-1 px-2 rounded-md opacity-100 pointer-events-none duration-300">
+                        <span className="block md:inline">Check your Amazon Order</span>
+                        <span className="block md:inline"> Details for Order Number</span>
                       </span>
                     )}
                   </span>
@@ -273,6 +274,7 @@ export const Form = ({ setRegister }) => {
                   value={formState.order}
                   type="text"
                   name="order"
+                  placeholder="000-0000000-0000000"
                   className="w-full border border-[#E6DCC8] bg-[#141414] rounded-lg p-2 mt-2"
                 />
               </div>
