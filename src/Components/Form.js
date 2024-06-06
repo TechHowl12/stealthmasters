@@ -26,9 +26,30 @@ export const Form = ({ setRegister }) => {
     place: "",
   });
 
+  const formatOrderId = (value) => {
+    
+    const numbersOnly = value.replace(/\D/g, '');
+
+    let formattedValue = numbersOnly;
+    if (numbersOnly.length > 3) {
+      formattedValue = `${numbersOnly.slice(0, 3)}-${numbersOnly.slice(3)}`;
+    }
+    if (numbersOnly.length > 10) {
+      formattedValue = `${formattedValue.slice(0, 11)}-${formattedValue.slice(11)}`;
+    }
+
+    return formattedValue;
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "date") {
+    if (name === "order") {
+      const formattedOrderId = formatOrderId(value);
+      setFormState((prevState) => ({
+        ...prevState,
+        [name]: formattedOrderId,
+      }));
+    } else if (name === "date") {
       const formattedDate = value ? value.format("MM-DD-YYYY") : "";
       setFormState((prevState) => ({
         ...prevState,
@@ -65,8 +86,8 @@ export const Form = ({ setRegister }) => {
     }
     if (!formState.order) {
       newErrors.order = "Order ID is required*";
-    } else if (!/^\d+$/.test(formState.order)) {
-      newErrors.order = "Order ID must contain only numbers*";
+    } else if (!/^\d{3}-\d{7}-\d{7}$/.test(formState.order)) {
+      newErrors.order = "Order ID must be in the format 123-1234567-1234567*";
     }
     if (!formState.date) {
       newErrors.date = "Date of purchase is required*";
@@ -165,7 +186,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide"
                   htmlFor="name"
                 >
-                  Name*:
+                  Name* :
                 </label>
                 {errors.name && (
                   <span className="text-red-500 text-sm ml-2">
@@ -185,7 +206,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide"
                   htmlFor="email"
                 >
-                  E-Mail*:
+                  E-Mail* :
                 </label>
                 {errors.email && (
                   <span className="text-red-500 text-sm ml-2">
@@ -205,7 +226,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide"
                   htmlFor="phone"
                 >
-                  Mobile Number*:
+                  Mobile Number* :
                 </label>
                 {errors.phone && (
                   <span className="text-red-500 text-sm ml-2">
@@ -225,7 +246,7 @@ export const Form = ({ setRegister }) => {
                   className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
                   htmlFor="order"
                 >
-                  Order ID*:
+                  Order ID* :
                   <span className="relative">
                     <img
                       onMouseEnter={() => setIsHover(true)}
@@ -261,7 +282,7 @@ export const Form = ({ setRegister }) => {
                     className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
                     htmlFor="place"
                   >
-                    Place of Purchase*:
+                    Place of Purchase* :
                   </label>
                   {errors.place && (
                     <span className="text-red-500 text-sm ml-2">
@@ -286,7 +307,7 @@ export const Form = ({ setRegister }) => {
                     className="font-normal roboto text-sm md:text-lg tracking-wide flex items-center gap-x-2"
                     htmlFor="date"
                   >
-                    Date of Purchase*:
+                    Date of Purchase* :
                   </label>
                   {errors.date && (
                     <span className="text-red-500 text-sm ml-2">
