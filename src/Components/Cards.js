@@ -27,7 +27,7 @@ export const Cards = () => {
             <div className='h-2/3 relative flex items-center justify-center'>
                       <img className='w-5/6 absolute md:top-5 sm:top-[30%]' src={smallCase} alt='small gun case'/>
                     </div>
-                    <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Small MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits One Handgun)</span></h5>
+                    <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Small <span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits One Handgun)</span></h5>
                      <div className='flex gap-x-2 mt-1'>
                         <button onClick={()=>setSmallCase(SmallBlack)} className='w-4 h-4 bg-black rounded-sm cursor-pointer'></button>
                         <button onClick={()=>setSmallCase(SmallBrown)} className='w-4 h-4 bg-[#926641] rounded-sm cursor-pointer'></button>
@@ -43,7 +43,7 @@ export const Cards = () => {
             <div className='h-2/3 relative flex items-center justify-center'>
                       <img className='w-5/6 absolute md:top-5 sm:top-[30%]' src={mediumCase} alt='medium gun case'/>
                     </div>
-                    <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Medium MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits Two Handguns)</span></h5>
+                    <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Medium <span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits Two Handguns)</span></h5>
                      <div className='flex gap-x-2 mt-1'>
                         <button onClick={()=>setMediumCase(MediumBlack)} className='w-4 h-4 bg-black rounded-sm'></button>
                         <button onClick={()=>setMediumCase(MediumBrown)} className='w-4 h-4 bg-[#926641] rounded-sm'></button>
@@ -59,7 +59,7 @@ export const Cards = () => {
             <div className='h-2/3 relative flex items-center justify-center'>
                       <img className='w-5/6 absolute md:top-5 sm:top-[30%]' src={largeCase} alt='large gun case'/>
                     </div>
-                    <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Large MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits Two Handguns & One Assault Rifle)</span></h5>
+                    <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Large <span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits Two Handguns & One Assault Rifle)</span></h5>
                      <div className='flex gap-x-2 mt-1'>
                         <button onClick={()=>setLargeCase(LargeBlack)} className='w-4 h-4 bg-black rounded-sm'></button>
                         <button onClick={()=>setLargeCase(LargeBrown)} className='w-4 h-4 bg-[#926641] rounded-sm'></button>
@@ -75,7 +75,7 @@ export const Cards = () => {
             <div className='h-2/3 relative flex items-center justify-center'>
                       <img className='w-5/6 absolute md:top-2 sm:top-[30%]' src={YankeeWhite} alt='small white gun case'/>
                     </div>
-                    <h5 className='font-semibold sm:mt-3 mt-8'>Bravo Small MSRP<span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits One Handgun & One Assault Rifle)</span></h5>
+                    <h5 className='font-semibold sm:mt-3 mt-8'>Yankee Large <span className='inline sm:block font-normal roboto pl-4 sm:pl-0 text-sm'>(Fits One Handgun & One Assault Rifle)</span></h5>
                      <div className='flex gap-x-2 mt-1'>
                         <button className='w-4 h-4 bg-white rounded-sm'></button>
                      </div>
